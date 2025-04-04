@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC ビデオチャット</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+        }
+
+        #formContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #userIdDisplayContainer {
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #peerId {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        #connectButton {
+            padding: 10px 15px;
+            font-size: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 5px;
+        }
+
+        #connectButton:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        #remoteVideo, #localVideo {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 40%;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #startCall {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #startCall:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- 自分のIDを表示するエリア -->
+    <div id="userIdDisplayContainer">
+        <p>あなたのID: <span id="userIdDisplay">取得中...</span></p>
+    </div>
+
+    <!-- ID入力フォーム -->
+    <div id="formContainer">
+        <label for="peerId">相手のID:</label>
+        <input type="text" id="peerId" placeholder="相手のIDを入力">
+        <button id="connectButton">接続</button>
+    </div>
+
+    <!-- ビデオ表示エリア -->
+    <div class="container">
+        <video id="localVideo" autoplay playsinline muted></video>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+
+    <!-- 通話開始ボタン -->
+    <button id="startCall">通話を開始</button>
+
+    <script src="app.js"></script>
+    <a href="./testpages/chat.html">チャット</a><br>
+
+</body>
+</html>
